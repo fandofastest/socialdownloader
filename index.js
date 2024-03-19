@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const { tikdown } = require("nayan-media-downloader")
 const { ndown } = require("nayan-media-downloader")
 const { ytdown } = require("nayan-media-downloader")
+const { twitterdown } = require("nayan-media-downloader")
 
 const app = express()
  
@@ -25,7 +26,12 @@ app.post('/fb',async (req, res) => {
   res.send(URL);
 })
 
+app.post('/twitter',async (req, res) => {
+  let url = req.body.url;  
+  let URL = await twitterdown(url)
 
+  res.send(URL);
+})
 app.post('/yt',async (req, res) => {
   let url = req.body.url;  
   let URL = await ytdown(url)

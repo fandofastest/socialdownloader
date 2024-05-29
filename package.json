@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@xaviabot/fb-downloader": "^1.0.14",
+    "another-fb-video-downloader": "^1.0.4",
     "body-parser": "^1.20.2",
     "express": "^4.18.3",
     "fb-downloader-scrapper": "^2.0.0",

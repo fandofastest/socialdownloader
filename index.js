@@ -1,9 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { tikdown } = require("nayan-media-downloader")
-const { ndown } = require("nayan-media-downloader")
 const { ytdown } = require("nayan-media-downloader")
 const { twitterdown } = require("nayan-media-downloader")
+const { search } = require("pinterest-dl");
+const getFbVideoInfo = require("fb-downloader-scrapper")
+
+
 
 const app = express()
  
@@ -21,7 +24,7 @@ app.post('/tiktok',async (req, res) => {
 
 app.post('/fb',async (req, res) => {
   let url = req.body.url;  
-  let URL = await ndown(url)
+  let URL = await getFbVideoInfo(url)
 
   res.send(URL);
 })
@@ -35,6 +38,13 @@ app.post('/twitter',async (req, res) => {
 app.post('/yt',async (req, res) => {
   let url = req.body.url;  
   let URL = await ytdown(url)
+
+  res.send(URL);
+})
+
+app.post('/pinterest',async (req, res) => {
+  let url = req.body.url;  
+  let URL = await search(url)
 
   res.send(URL);
 })

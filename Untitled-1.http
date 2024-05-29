@@ -1,0 +1,7 @@
+POST http://localhost:3000/fb HTTP/1.1
+content-type: application/json
+ 
+
+{ 
+    "url": "https://fb.watch/smrj9zBVJN/"
+}
